@@ -34,8 +34,25 @@ let jokes = [
   }
 ];
 
+
 // serve back static files
 app.use(express.static('server/public'));
+
+
+app.get('/jokes' , (req, res) => {
+  res.send(jokes);
+})
+
+//POST route to get a new joke from the client(browser)
+app.post('/jokes' , (req, res) => {
+  let newItem = req.body;
+  console.log('got a new joke' , newJoke);
+  jokes.push(newJoke);
+  //allow for creating/adding new thing on client side
+  res.sendStatus(201);
+  
+})
+
 
 app.listen(PORT, () => {
   console.log('server running on: ', PORT);
