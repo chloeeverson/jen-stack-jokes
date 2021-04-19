@@ -45,3 +45,22 @@ function addJoke() {
     $('#punchlineIn').val('');
 }//end function addJoke
 
+function getJokes(){
+    $.ajax({
+        method: 'GET',
+        url: '/jokes',
+        //new joke going in request body
+    })
+        .then( function(response) {
+            console.log('response from server' , response);
+            //pass array into rendor method to display
+            render(response);
+        })
+        .catch( function(error) {
+            console.log('error from server' , error);
+            alert('sorry, could not add your joke. try again later.')
+        })
+    console.log('after making server request...');
+    
+}//end function getJokes
+
