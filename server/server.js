@@ -45,7 +45,7 @@ app.get('/jokes' , (req, res) => {
 
 //POST route to get a new joke from the client(browser)
 app.post('/jokes' , (req, res) => {
-  let newItem = req.body;
+  let newJoke = req.body;
   console.log('got a new joke' , newJoke);
   jokes.push(newJoke);
   //allow for creating/adding new thing on client side
